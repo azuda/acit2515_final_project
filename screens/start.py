@@ -1,5 +1,5 @@
 import pygame
-from base_screen import BaseScreen
+from .base_screen import BaseScreen
 
 
 class StartScreen(BaseScreen):
