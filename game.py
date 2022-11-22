@@ -4,6 +4,7 @@ Aaron Zhang - A01316218
 '''
 
 import pygame
+from .screens import StartScreen, GameScreen, GameOverScreen
 
 
 class Game:
@@ -11,17 +12,15 @@ class Game:
     self.window = pygame.display.set_mode((800, 800))
 
   def run(self):
-    # screens = {
-    #   "start": StartScreen,
-    #   "game": GameScreen,
-    #   "game_over": GameOverScreen,
-    # }
+    screens = {
+      "start": StartScreen,
+      "game": GameScreen,
+      "game_over": GameOverScreen,
+    }
 
     running = True
-    clock = pygame.time.Clock()
+    current_screen = "start"
     while running:
-      clock.tick(30)
-
       # event loop - quit when Esc is pressed
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
