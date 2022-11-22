@@ -9,3 +9,9 @@ class Player(pygame.sprite.Sprite):
     self.image = pygame.Surface((width, height))
     self.image.fill(colour)
     self.rect = self.image.get_rect()
+
+    if self.limits:
+      self.move_to(
+        self.limits.center[0] - self.rect.width / 2,
+        self.limits.bottom - self.rect.height,
+      )
