@@ -1,5 +1,5 @@
 # ACIT 2515 Final Project
 
-## TRON CLONE PYGAME
+## CTB CLONE PYGAME
 
 *Aaron Zhang - A01316218*
