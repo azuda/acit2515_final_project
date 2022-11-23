@@ -8,6 +8,7 @@ class BaseScreen:
     self.window = window
     self.next_screen = False
 
+
   def run(self):
     clock = pygame.time.Clock()
     self.running = True
@@ -28,6 +29,7 @@ class BaseScreen:
 
         self.manage_event(event)
 
+
     @property
     def rect(self):
       return self.window.get_rect()
@@ -36,7 +38,7 @@ class BaseScreen:
     # METHODS FOR CHILD CLASS OVERRIDE
     def draw(self):
       print("DRAW method")
-    
+
     def update(self):
       print("UPDATE method")
 
