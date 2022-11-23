@@ -18,7 +18,7 @@ class BaseScreen:
       self.draw()
       pygame.display.update()
 
-      # event loop - quit when Esc is pressed
+      # event loop to quit when Esc is pressed
       for event in pygame.event.get():
         if event.type == pygame.QUIT:
           self.running = False
@@ -35,7 +35,7 @@ class BaseScreen:
       return self.window.get_rect()
 
 
-    # METHODS FOR CHILD CLASS OVERRIDE
+    # methods for override by child classes
     def draw(self):
       print("DRAW method")
 
