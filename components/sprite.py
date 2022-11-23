@@ -20,14 +20,14 @@ class MySprite(pygame.sprite.Sprite):
     if self.rect.x + self.rect.width > self.limits.right:
       self.rect.x = self.limits.right - self.rect.width
 
-  def move(self, direction, boost=1, fall_speed=1):
+  def move(self, direction, boost=1):
     """Moves the object left, right, or down"""
     if direction == "right":
       self.rect.x += 10 * boost
     elif direction == "left":
       self.rect.x -= 10 * boost
     elif direction == "down":
-      self.rect.y += 10 * fall_speed
+      self.rect.y += 10 * boost
 
     self.check_limits()
 
