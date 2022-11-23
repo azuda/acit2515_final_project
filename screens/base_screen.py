@@ -13,7 +13,7 @@ class BaseScreen:
     clock = pygame.time.Clock()
     self.running = True
     while self.running:
-      clock.tick(30)
+      clock.tick(60)
       self.update()
       self.draw()
       pygame.display.update()
