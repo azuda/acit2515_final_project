@@ -12,7 +12,7 @@ class StartScreen(BaseScreen):
     pygame.init()
     font = pygame.font.SysFont("comicsans", 36)
     img = font.render("Press SPACE to play", True, (255, 255, 255))
-    self.window.blit(img, (240, 360))
+    self.window.blit(img, (470, 360))
 
   def update(self):
     pass
