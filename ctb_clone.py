@@ -19,6 +19,7 @@ class Game:
       "game_over": GameOverScreen,
     }
 
+    # start runtime loop
     current_screen = "start"
     running = True
     while running:
@@ -31,14 +32,11 @@ class Game:
       screen = screen_class(self.window)
       screen.run()
 
-
-
-      
-
-      # update screen
-      pygame.display.update()
+      if screen.next_screen is False:
+        running = False
+      current_screen = screen.next_screen
 
 
 if __name__ == "__main__":
-  game_x = Game()
-  game_x.run()
+  ctb_clone = Game()
+  ctb_clone.run()
