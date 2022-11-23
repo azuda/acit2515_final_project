@@ -21,7 +21,7 @@ class GameScreen(BaseScreen):
       self.player.move("left")
     if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
       self.player.move("right")
-    
+
     # movement boost
     if keys[pygame.K_LSHIFT]:
       if keys[pygame.K_LEFT] or keys[pygame.K_a]:
@@ -30,7 +30,7 @@ class GameScreen(BaseScreen):
       if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
         self.player.move("right")
         self.player.move("right")
-    
+
     self.sprites.update()
 
     # handle catching points
