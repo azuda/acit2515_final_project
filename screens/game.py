@@ -9,5 +9,5 @@ class GameScreen(BaseScreen):
 
   def run(self):
     # get key presses outside of event loop
-      keys = pygame.key.get_pressed()
-      # handle controls
+    keys = pygame.key.get_pressed()
+    # handle controls
