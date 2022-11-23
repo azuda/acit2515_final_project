@@ -3,11 +3,11 @@ from .sprite import MySprite
 
 
 class Player(MySprite):
-  '''Component representing player character'''
+  '''Represents player character'''
 
-  def __init__(self, width, height, **kwargs):
+  def __init__(self, width=100, height=100, **kwargs):
     super().__init__(**kwargs)
-    self.image = pygame.image.load("./sprites/player.png")
+    self.image = pygame.image.load("sprites/player.png")
     self.image = pygame.Surface.convert_alpha(self.image)
     self.image = pygame.transform.scale(self.image, (width, height))
     self.rect = self.image.get_rect()
