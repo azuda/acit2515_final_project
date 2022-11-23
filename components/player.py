@@ -8,6 +8,7 @@ class Player(MySprite):
   def __init__(self, width, height, **kwargs):
     super().__init__(**kwargs)
     self.image = pygame.image.load("./sprites/player.png")
+    self.image = pygame.Surface.convert_alpha(self.image)
     self.image = pygame.transform.scale(self.image, (width, height))
     self.rect = self.image.get_rect()
 
