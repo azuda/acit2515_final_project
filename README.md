@@ -2,6 +2,12 @@
 
 *by Aaron Zhang A01316218*
 
+**Features to add**
+  - specify positional spawning for point sprites
+  - read points_data from json
+  - add sound effects?
+  - upload high scores with stage name to Flask app
+
 ## Controls
 
 **A / Left Arrow** - move left
