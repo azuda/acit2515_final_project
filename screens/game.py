@@ -1,4 +1,4 @@
-import pygame
+import pygame, json
 from .base_screen import BaseScreen
 
 from components import Player, Point
@@ -7,20 +7,30 @@ from components import Player, Point
 class GameScreen(BaseScreen):
   def __init__(self, *args, **kwargs):
     super().__init__(*args, **kwargs)
+    self.score = 0
 
-    self.sprites = pygame.sprite.Group()
-
-    # player sprite
+    # player sprite group
     self.player = Player(limits=self.window.get_rect())
-    self.sprites.add(self.player)
+    self.player_group = pygame.sprite.GroupSingle(self.player)
 
-    self.point = Point(limits=self.window.get_rect(), type="300")
-    self.sprites.add(self.point)
+    # points sprite group
+    self.active_points = pygame.sprite.Group()
+
+    # get points data from json file doesn't work
+    # f = open("stage.json", "r")
+    self.points_data = nope
 
 
   def draw(self):
+    pygame.init()
     self.window.fill((25, 30, 35))
-    self.sprites.draw(self.window)
+    self.player_group.draw(self.window)
+    self.active_points.draw(self.window)
+
+    # draw score
+    font = pygame.font.SysFont("comicsans", 30)
+    img = font.render(str(self.score), True, (255, 255, 255))
+    self.window.blit(img, (10, 670))
 
 
   def update(self):
@@ -37,27 +47,97 @@ class GameScreen(BaseScreen):
       else:
         self.player.move("right")
 
-    # ensure point is always falling
-    self.point.move("down")
+    # spawn points at specified timings
+    for point in self.points_data:
+      if point["timing"] <= pygame.time.get_ticks():
+        self.active_points.add(Point(limits=self.window.get_rect(), type=point["type"]))
+        self.points_data.remove(point)
 
-    # player collision with point
-    if self.player.rect.colliderect(self.point.rect):
-      self.point.kill()
-      point = Point(limits=self.window.get_rect())
-      self.sprites.add(point)
-      # temporary redirect to start screen
-      # self.next_screen = "start"
-      # self.running = False
+    # ensure points are always falling
+    for sprite in self.active_points:
+      sprite.fall(1.2)
+
+      # player collision with point
+      if self.player.rect.colliderect(sprite.rect):
+        self.score += sprite.value
+        sprite.kill()
+
+    # CHECK WIN CONDITION
 
     # update sprites
-    self.sprites.update()
+    self.player_group.update()
+    self.active_points.update()
 
 
   def manage_event(self, event):
     if event.type == pygame.K_ESCAPE:
       self.running = False
       self.next_screen = False
-    
-    if event.type == pygame.KEYDOWN and event.key == pygame.K_LSHIFT:
-      # boost move speed
-      return None
+
+    # test stuff
+    # if event.type is not None:
+    #   self.sprites.move("down")
+
+
+nope = [
+  {
+    "type": "boost",
+    "timing": 1000
+  },
+  {
+    "type": "300",
+    "timing": 1200
+  },
+  {
+    "type": "100",
+    "timing": 1250
+  },
+  {
+    "type": "300",
+    "timing": 1500
+  },
+  {
+    "type": "100",
+    "timing": 1550
+  },
+  {
+    "type": "100",
+    "timing": 1600
+  },
+  {
+    "type": "300",
+    "timing": 1700
+  },
+  {
+    "type": "100",
+    "timing": 1750
+  },
+  {
+    "type": "300",
+    "timing": 1800
+  },
+  {
+    "type": "100",
+    "timing": 1900
+  },
+  {
+    "type": "boost",
+    "timing": 2000
+  },
+  {
+    "type": "300",
+    "timing": 2250
+  },
+  {
+    "type": "300",
+    "timing": 2500
+  },
+  {
+    "type": "300",
+    "timing": 2750
+  },
+  {
+    "type": "boost",
+    "timing": 3000
+  }
+]
