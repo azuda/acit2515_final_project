@@ -26,8 +26,6 @@ class MySprite(pygame.sprite.Sprite):
       self.rect.x += 10 * boost
     elif direction == "left":
       self.rect.x -= 10 * boost
-    elif direction == "down":
-      self.rect.y += 10 * boost
 
     self.check_limits()
 
@@ -35,4 +33,9 @@ class MySprite(pygame.sprite.Sprite):
     """Moves the object to a specified location"""
     self.rect.x = x
     self.rect.y = y
+    self.check_limits()
+
+  def fall(self, speed=1):
+    """Makes the object fall at a specified speed"""
+    self.rect.y += 10 * speed
     self.check_limits()
