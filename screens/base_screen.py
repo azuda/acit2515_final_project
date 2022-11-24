@@ -2,7 +2,7 @@ import pygame
 
 
 class BaseScreen:
-  '''Basic class for all screen types'''
+  """Basic class for all screen types"""
 
   def __init__(self, window):
     self.window = window
