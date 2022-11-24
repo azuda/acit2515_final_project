@@ -61,22 +61,27 @@ class GameScreen(BaseScreen):
       if self.player.rect.colliderect(sprite.rect):
         self.score += sprite.value
         sprite.kill()
-
-    # CHECK WIN CONDITION
+      # kill points if they fall off screen
+      if sprite.rect.y > 720:
+        sprite.kill()
 
     # update sprites
     self.player_group.update()
     self.active_points.update()
 
+    # check that stage is over
+    if len(self.active_points) == 0:
+      if pygame.time.get_ticks() > 1000:
+        with open("scores.json", "w") as f:
+          json.dump({"score": self.score}, f)
+
+        self.next_screen = "game_over"
+        self.running = False
+
 
   def manage_event(self, event):
-    if event.type == pygame.K_ESCAPE:
-      self.running = False
-      self.next_screen = False
+    pass
 
-    # test stuff
-    # if event.type is not None:
-    #   self.sprites.move("down")
 
 
 nope = [
