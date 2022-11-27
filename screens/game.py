@@ -7,7 +7,9 @@ from components import Player, Point
 class GameScreen(BaseScreen):
   def __init__(self, *args, **kwargs):
     super().__init__(*args, **kwargs)
+    # initialize stats to draw
     self.score = 0
+    self.combo = 0
 
     # player sprite group
     self.player = Player(limits=self.window.get_rect())
@@ -17,7 +19,7 @@ class GameScreen(BaseScreen):
     self.active_points = pygame.sprite.Group()
 
     # load stage points data from json
-    with open("stage.json", "r") as f:
+    with open("data/stage3.json", "r") as f:
       stage_data = json.load(f)
     self.points_data = stage_data
     self.total_score = 0
@@ -35,10 +37,13 @@ class GameScreen(BaseScreen):
     self.player_group.draw(self.window)
     self.active_points.draw(self.window)
 
-    # draw score
     font = pygame.font.SysFont("comicsans", 30)
-    img = font.render(str(self.score), True, (255, 255, 255))
-    self.window.blit(img, (10, 670))
+    # draw score
+    score_text = font.render(f"Score: {str(self.score)}", True, (255, 255, 255))
+    self.window.blit(score_text, (10, 670))
+    # draw combo
+    combo_text = font.render(f"Combo: {str(self.combo)}x", True, (255, 255, 255))
+    self.window.blit(combo_text, (10, 640))
 
 
   def update(self):
@@ -68,12 +73,14 @@ class GameScreen(BaseScreen):
       # player collision with point
       if self.player.rect.colliderect(sprite.rect):
         self.sound_click.play()
+        self.combo += 1
         self.score += sprite.value
         self.total_score += sprite.value
         sprite.kill()
       # kill points if they fall off screen
       if sprite.rect.y > 720:
         self.sound_pew.play()
+        self.combo = 0
         self.total_score += sprite.value
         sprite.kill()
 
@@ -85,7 +92,7 @@ class GameScreen(BaseScreen):
     if len(self.active_points) == 0:
       if pygame.time.get_ticks() > 1000:
         # append score to scores.json
-        with open("this_score.json", "w") as f:
+        with open("data/this_score.json", "w") as f:
           json.dump({"time": str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")),
           "score": self.score,
           "acc": round(self.score / self.total_score, 2)}, f)
