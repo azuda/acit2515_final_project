@@ -6,23 +6,22 @@ import random
 class Point(MySprite):
   """Represents points that the player can catch"""
 
-  def __init__(self, type="300", timing=None, position=random.randint(50, 1230), **kwargs):
-    if type not in ["300", "100", "boost"]:
-      raise AttributeError("Invalid point type")
-
+  def __init__(self, point_type="300", timing=None, position=random.randint(50, 1230), **kwargs):
     super().__init__(**kwargs)
     self.time = timing
 
     # load corresponding image for point type
-    if type is "300":
+    if point_type == "300":
       self.image = pygame.image.load("sprites/point_300.png")
       self.value = 300
-    elif type is "100":
+    elif point_type == "100":
       self.image = pygame.image.load("sprites/point_100.png")
       self.value = 100
-    elif type is "boost":
+    elif point_type == "boost":
       self.image = pygame.image.load("sprites/point_boost.png")
       self.value = 310
+    else:
+      raise AttributeError("Invalid point type")
 
     self.image = pygame.Surface.convert_alpha(self.image)
     self.image = pygame.transform.scale(self.image, (100, 100))

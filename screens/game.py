@@ -16,9 +16,10 @@ class GameScreen(BaseScreen):
     # points sprite group
     self.active_points = pygame.sprite.Group()
 
-    # get points data from json file doesn't work
-    # f = open("stage.json", "r")
-    self.points_data = nope
+    # load stage points data from json
+    with open("stage.json", "r") as f:
+      stage_data = json.load(f)
+    self.points_data = stage_data
 
 
   def draw(self):
@@ -47,10 +48,10 @@ class GameScreen(BaseScreen):
       else:
         self.player.move("right")
 
-    # spawn points at specified timings
+    # spawn points at specified time and pos
     for point in self.points_data:
       if point["timing"] <= pygame.time.get_ticks():
-        self.active_points.add(Point(limits=self.window.get_rect(), type=point["type"]))
+        self.active_points.add(Point(limits=self.window.get_rect(), point_type=point["type"], position=point["position"]))
         self.points_data.remove(point)
 
     # ensure points are always falling
@@ -81,68 +82,3 @@ class GameScreen(BaseScreen):
 
   def manage_event(self, event):
     pass
-
-
-
-nope = [
-  {
-    "type": "boost",
-    "timing": 1000
-  },
-  {
-    "type": "300",
-    "timing": 1200
-  },
-  {
-    "type": "100",
-    "timing": 1250
-  },
-  {
-    "type": "300",
-    "timing": 1500
-  },
-  {
-    "type": "100",
-    "timing": 1550
-  },
-  {
-    "type": "100",
-    "timing": 1600
-  },
-  {
-    "type": "300",
-    "timing": 1700
-  },
-  {
-    "type": "100",
-    "timing": 1750
-  },
-  {
-    "type": "300",
-    "timing": 1800
-  },
-  {
-    "type": "100",
-    "timing": 1900
-  },
-  {
-    "type": "boost",
-    "timing": 2000
-  },
-  {
-    "type": "300",
-    "timing": 2250
-  },
-  {
-    "type": "300",
-    "timing": 2500
-  },
-  {
-    "type": "300",
-    "timing": 2750
-  },
-  {
-    "type": "boost",
-    "timing": 3000
-  }
-]
