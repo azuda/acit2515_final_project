@@ -3,8 +3,8 @@
 *by Aaron Zhang A01316218*
 
 **todo**
-  - create Flask app for viewing scores (read, filter)
   - stage selection functionality
+  - add sort, filter, delete functionality to Flask app
 
 ## Controls
 
