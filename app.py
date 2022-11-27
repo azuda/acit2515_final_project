@@ -4,7 +4,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 # read scores.json
-with open("scores.json", "r") as f:
+with open("data/scores.json", "r") as f:
   scores = json.load(f)
 
 
