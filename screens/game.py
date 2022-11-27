@@ -1,6 +1,6 @@
 import pygame, json
+from datetime import datetime
 from .base_screen import BaseScreen
-
 from components import Player, Point
 
 
@@ -86,7 +86,9 @@ class GameScreen(BaseScreen):
       if pygame.time.get_ticks() > 1000:
         # append score to scores.json
         with open("this_score.json", "w") as f:
-          json.dump({"score": self.score, "acc": round(self.score / self.total_score, 2)}, f)
+          json.dump({"time": str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")),
+          "score": self.score,
+          "acc": round(self.score / self.total_score, 2)}, f)
 
         self.next_screen = "game_over"
         self.running = False
