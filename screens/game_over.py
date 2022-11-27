@@ -7,14 +7,14 @@ class GameOverScreen(BaseScreen):
     super().__init__(*args, **kwargs)
     
     # load current score
-    with open("this_score.json", "r") as f:
+    with open("data/this_score.json", "r") as f:
       self.score = json.load(f)
     
     # append this_score to scores.json
-    with open("scores.json", "r") as f:
+    with open("data/scores.json", "r") as f:
       scores = json.load(f)
     scores.append(self.score)
-    with open("scores.json", "w") as f:
+    with open("data/scores.json", "w") as f:
       json.dump(scores, f)
 
 
