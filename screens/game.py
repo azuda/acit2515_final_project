@@ -21,6 +21,12 @@ class GameScreen(BaseScreen):
       stage_data = json.load(f)
     self.points_data = stage_data
 
+    # load sound effects
+    self.sound_click = pygame.mixer.Sound("sounds/click_normal.wav")
+    self.sound_pew = pygame.mixer.Sound("sounds/pew.wav")
+    self.sound_click.set_volume(0.25)
+    self.sound_pew.set_volume(0.25)
+
 
   def draw(self):
     pygame.init()
@@ -60,10 +66,12 @@ class GameScreen(BaseScreen):
 
       # player collision with point
       if self.player.rect.colliderect(sprite.rect):
+        self.sound_click.play()
         self.score += sprite.value
         sprite.kill()
       # kill points if they fall off screen
       if sprite.rect.y > 720:
+        self.sound_pew.play()
         sprite.kill()
 
     # update sprites
