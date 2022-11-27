@@ -2,11 +2,9 @@
 
 *by Aaron Zhang A01316218*
 
-**Features to add**
-  - specify positional spawning for point sprites
-  - read points_data from json
-  - add sound effects?
-  - upload high scores with stage name to Flask app
+**todo**
+  - create Flask app for viewing scores (read, filter)
+  - stage selection functionality
 
 ## Controls
 
