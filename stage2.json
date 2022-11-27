@@ -1,0 +1,82 @@
+[
+  {
+    "type": "boost",
+    "timing": 1000,
+    "position": 300
+  },
+  {
+    "type": "100",
+    "timing": 1050,
+    "position": 290
+  },
+  {
+    "type": "300",
+    "timing": 1200,
+    "position": 700
+  },
+  {
+    "type": "100",
+    "timing": 1250,
+    "position": 710
+  },
+  {
+    "type": "300",
+    "timing": 1400,
+    "position": 400
+  },
+  {
+    "type": "100",
+    "timing": 1450,
+    "position": 390
+  },
+  {
+    "type": "300",
+    "timing": 1600,
+    "position": 800
+  },
+  {
+    "type": "100",
+    "timing": 1650,
+    "position": 810
+  },
+  {
+    "type": "boost",
+    "timing": 1800,
+    "position": 500
+  },
+  {
+    "type": "100",
+    "timing": 1850,
+    "position": 490
+  },
+  {
+    "type": "300",
+    "timing": 2000,
+    "position": 1000
+  },
+  {
+    "type": "100",
+    "timing": 2050,
+    "position": 1010
+  },
+  {
+    "type": "300",
+    "timing": 2200,
+    "position": 400
+  },
+  {
+    "type": "100",
+    "timing": 2250,
+    "position": 390
+  },
+  {
+    "type": "300",
+    "timing": 2400,
+    "position": 1900
+  },
+  {
+    "type": "100",
+    "timing": 2450,
+    "position": 1910
+  }
+]
