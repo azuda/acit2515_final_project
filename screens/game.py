@@ -20,6 +20,7 @@ class GameScreen(BaseScreen):
     with open("stage.json", "r") as f:
       stage_data = json.load(f)
     self.points_data = stage_data
+    self.total_score = 0
 
     # load sound effects
     self.sound_click = pygame.mixer.Sound("sounds/click_normal.wav")
@@ -68,10 +69,12 @@ class GameScreen(BaseScreen):
       if self.player.rect.colliderect(sprite.rect):
         self.sound_click.play()
         self.score += sprite.value
+        self.total_score += sprite.value
         sprite.kill()
       # kill points if they fall off screen
       if sprite.rect.y > 720:
         self.sound_pew.play()
+        self.total_score += sprite.value
         sprite.kill()
 
     # update sprites
@@ -81,8 +84,9 @@ class GameScreen(BaseScreen):
     # check that stage is over
     if len(self.active_points) == 0:
       if pygame.time.get_ticks() > 1000:
-        with open("scores.json", "w") as f:
-          json.dump({"score": self.score}, f)
+        # append score to scores.json
+        with open("this_score.json", "w") as f:
+          json.dump({"score": self.score, "acc": round(self.score / self.total_score, 2)}, f)
 
         self.next_screen = "game_over"
         self.running = False
