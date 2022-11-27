@@ -11,3 +11,7 @@ with open("scores.json", "r") as f:
 @app.route("/")
 def home():
   return render_template("base.html", scores=scores), 200
+
+
+if __name__ == "__main__":
+  app.run(debug=True)
