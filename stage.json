@@ -1,62 +1,77 @@
 [
   {
     "type": "boost",
-    "timing": 1000
+    "timing": 1000,
+    "position": 100
   },
   {
     "type": "300",
-    "timing": 1200
+    "timing": 1200,
+    "position": 200
   },
   {
     "type": "100",
-    "timing": 1250
+    "timing": 1250,
+    "position": 300
   },
   {
     "type": "300",
-    "timing": 1500
+    "timing": 1500,
+    "position": 400
   },
   {
     "type": "100",
-    "timing": 1550
+    "timing": 1550,
+    "position": 500
   },
   {
     "type": "100",
-    "timing": 1600
+    "timing": 1600,
+    "position": 600
   },
   {
     "type": "300",
-    "timing": 1700
+    "timing": 1700,
+    "position": 700
   },
   {
     "type": "100",
-    "timing": 1750
+    "timing": 1750,
+    "position": 800
   },
   {
     "type": "300",
-    "timing": 1800
+    "timing": 1800,
+    "position": 900
   },
   {
     "type": "100",
-    "timing": 1900
+    "timing": 1900,
+    "position": 1000
   },
   {
     "type": "boost",
-    "timing": 2000
+    "timing": 2000,
+    "position": 1100
   },
   {
     "type": "300",
-    "timing": 2250
+    "timing": 2250,
+    "position": 1200
   },
   {
     "type": "300",
-    "timing": 2500
+    "timing": 2500,
+    "position": 1300
   },
   {
     "type": "300",
-    "timing": 2750
+    "timing": 2750,
+    "position": 1400
   },
   {
     "type": "boost",
-    "timing": 3000
+    "timing": 3000,
+    "position": 1500
   }
 ]

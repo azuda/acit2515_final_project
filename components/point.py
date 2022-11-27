@@ -6,7 +6,7 @@ import random
 class Point(MySprite):
   """Represents points that the player can catch"""
 
-  def __init__(self, type="300", timing=None, **kwargs):
+  def __init__(self, type="300", timing=None, position=random.randint(50, 1230), **kwargs):
     if type not in ["300", "100", "boost"]:
       raise AttributeError("Invalid point type")
 
@@ -29,4 +29,4 @@ class Point(MySprite):
     self.rect = self.image.get_rect()
 
     if self.limits:
-      self.move_to(random.randint(50, 1230), -100)
+      self.move_to(position, -100)
