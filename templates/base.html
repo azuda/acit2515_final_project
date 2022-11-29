@@ -21,12 +21,14 @@
   <table>
     <tr>
       <th>Time</th>
+      <th>Stage Name</th>
       <th>Score</th>
       <th>Accuracy</th>
     </tr>
     {% for s in scores %}
       <tr>
         <td>{{ s.time }}</td>
+        <td> {{ s.stage }} </td>
         <td>{{ s.score }}</td>
         <td>{{ s.acc * 100 }}%</td>
       </tr>
