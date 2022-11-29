@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+<head>
+  {% block header %}
+    {{ super() }}
+  {% endblock %}
+</head>
+
+<body>
+  {% block content %}
+  <h1>CTB CLONE PYGAME SCORES</h1>
+
+  <a href="/">Time</a>
+  <a href="/sort/stage">Stage</a>
+  <a href="/sort/score">Score</a>
+  <a href="/sort/acc">Accuracy</a>
+
+  <h2>Currently sorting by: {{ key }} </h2>
+
+  <table>
+    <tr>
+      <th>Time</th>
+      <th>Stage Name</th>
+      <th>Score</th>
+      <th>Accuracy</th>
+    </tr>
+    {% for s in scores %}
+      <tr>
+        <td>{{ s.time }}</td>
+        <td> {{ s.stage }} </td>
+        <td>{{ s.score }}</td>
+        <td>{{ s.acc * 100 }}%</td>
+      </tr>
+      {% endfor %}
+  </table>
+  {% endblock %}
+</body>
+

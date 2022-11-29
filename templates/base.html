@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  {% block head %}
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <style>
+    * {
+      background-color: #191e23;
+      color: #55e5f5;
+      text-align: center;
+    }
     table, th, td {
-      border: 1px solid #1f1e33;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    th, td {
+      border: 1px solid;
+      padding: 8px
+    }
+    a {
+      padding-left: 32px;
+      padding-right: 32px;
     }
   </style>
-
   <title>CTB Clone Flask App</title>
+  {% endblock %}
 </head>
 
 <body>
-
+  {% block content %}
   <h1>CTB CLONE PYGAME SCORES</h1>
+
+  <a href="/sort/stage">Stage</a>
+  <a href="/sort/score">Score</a>
+  <a href="/sort/acc">Accuracy</a>
 
   <table>
     <tr>
@@ -34,6 +53,6 @@
       </tr>
       {% endfor %}
   </table>
-
+  {% endblock %}
 </body>
 </html>
