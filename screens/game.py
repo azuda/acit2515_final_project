@@ -2,6 +2,7 @@ import pygame, json
 from datetime import datetime
 from .base_screen import BaseScreen
 from components import Player, Point
+from sounds import Sound
 
 
 class GameScreen(BaseScreen):
@@ -19,16 +20,14 @@ class GameScreen(BaseScreen):
     self.active_points = pygame.sprite.Group()
 
     # load stage points data from json
-    with open("data/stage3.json", "r") as f:
+    with open("data/stage2.json", "r") as f:
       stage_data = json.load(f)
     self.points_data = stage_data
     self.total_score = 0
 
     # load sound effects
-    self.sound_click = pygame.mixer.Sound("sounds/click_normal.wav")
-    self.sound_pew = pygame.mixer.Sound("sounds/pew.wav")
-    self.sound_click.set_volume(0.25)
-    self.sound_pew.set_volume(0.25)
+    self.sound_click = Sound("sounds/click_normal.wav", 0.25)
+    self.sound_pew = Sound("sounds/pew.wav", 0.25)
 
 
   def draw(self):
@@ -51,12 +50,12 @@ class GameScreen(BaseScreen):
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT] or keys[pygame.K_a]:
       if keys[pygame.K_LSHIFT]:
-        self.player.move("left", boost=2.5)
+        self.player.move("left", boost=4)
       else:
         self.player.move("left")
     if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
       if keys[pygame.K_LSHIFT]:
-        self.player.move("right", boost=2.5)
+        self.player.move("right", boost=4)
       else:
         self.player.move("right")
 
