@@ -2,9 +2,11 @@
 
 *by Aaron Zhang A01316218*
 
-**todo**
-  - stage selection functionality
-  - add sort, filter, delete functionality to Flask app
+**future feature todo**
+  - graphical stage selection
+  - sort, filter, delete functionality in Flask app
+  - better stage creation / editing
+  - variable movement speed and fall speed modifiers
 
 ## Controls
 
@@ -18,7 +20,9 @@
 
 Catch the points as they fall from the top of the screen.
 
-Different points are worth different values:
+![gameplay](images/gameplay.png)
+
+Different points are worth different score values:
 
 ![310](sprites/point_boost.png)
 **310 points**
@@ -29,4 +33,4 @@ Different points are worth different values:
 ![100](sprites/point_100.png)
 **100 points**
 
-
+Try to maintain your combo by catching points without missing any.
