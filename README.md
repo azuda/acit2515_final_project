@@ -7,6 +7,10 @@
   - graphical stage selection
   - better stage creation / editing
   - variable movement speed and fall speed modifiers
+  
+## File Structure
+
+![tree](images/tree.png)
 
 ## Controls
 
