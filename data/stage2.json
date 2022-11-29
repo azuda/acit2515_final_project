@@ -61,22 +61,22 @@
   },
   {
     "type": "300",
-    "timing": 2200,
+    "timing": 2300,
     "position": 400
   },
   {
     "type": "100",
-    "timing": 2250,
+    "timing": 2350,
     "position": 390
   },
   {
     "type": "300",
-    "timing": 2400,
+    "timing": 2700,
     "position": 1100
   },
   {
     "type": "100",
-    "timing": 2450,
+    "timing": 2750,
     "position": 1110
   }
 ]

@@ -1,4 +1,3 @@
-import json
 import handler.handler as handler
 from flask import Flask, render_template, request
 
