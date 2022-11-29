@@ -3,8 +3,8 @@
 *by Aaron Zhang A01316218*
 
 **future feature todo**
+  - usernames
   - graphical stage selection
-  - sort, filter, delete functionality in Flask app
   - better stage creation / editing
   - variable movement speed and fall speed modifiers
 
@@ -34,3 +34,15 @@ Different points are worth different score values:
 **100 points**
 
 Try to maintain your combo by catching points without missing any.
+
+## Flask Web Application
+
+Flask web application displays all scores (scores.json).
+
+![flask_home](images/flask_home.png)
+
+By default, scores are sorted by time registered.
+
+App also allows for sorting scores by stage name, score, or accuracy.
+
+![flask_sort](images/flask_sort.png)
