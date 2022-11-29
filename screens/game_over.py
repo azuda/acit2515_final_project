@@ -1,4 +1,5 @@
 import pygame, json
+import handler.handler as handler
 from .base_screen import BaseScreen
 
 
@@ -24,9 +25,9 @@ class GameOverScreen(BaseScreen):
     pygame.init()
     font1 = pygame.font.SysFont("comicsans", 36)
     font2 = pygame.font.SysFont("comicsans", 24)
-    game_over = font1.render("Stage Completed", True, (255, 255, 255))
+    game_over = font1.render(f"{handler.get_stage()[:-5]} Completed!", True, (255, 255, 255))
     score_text = font2.render(f"Score: {self.score['score']}", True, (255, 255, 255))
-    acc_text = font2.render(f"Accuracy: {self.score['acc'] * 100}%", True, (255, 255, 255))
+    acc_text = font2.render(f"Accuracy: {round(self.score['acc'] * 100, 2)}%", True, (255, 255, 255))
     self.window.blit(game_over, (480, 320))
     self.window.blit(score_text, (480, 360))
     self.window.blit(acc_text, (480, 380))

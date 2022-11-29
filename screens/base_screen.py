@@ -18,6 +18,9 @@ class BaseScreen:
       self.draw()
       pygame.display.update()
 
+      if self.next_screen == "game":
+        clock = pygame.time.Clock()
+
       # event loop to quit when Esc is pressed
       for event in pygame.event.get():
         if event.type == pygame.QUIT:

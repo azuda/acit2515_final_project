@@ -10,7 +10,9 @@ from screens import StartScreen, GameScreen, GameOverScreen
 
 class Game:
   def __init__(self):
-    self.window = pygame.display.set_mode((1280, 720))
+    self.width = 1280
+    self.height = 720
+    self.window = pygame.display.set_mode((self.width, self.height))
 
   def run(self):
     screens = {
