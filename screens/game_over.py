@@ -4,6 +4,7 @@ from .base_screen import BaseScreen
 
 
 class GameOverScreen(BaseScreen):
+  """Screen for when the player completes a stage"""
   def __init__(self, *args, **kwargs):
     super().__init__(*args, **kwargs)
     

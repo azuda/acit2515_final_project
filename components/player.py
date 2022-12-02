@@ -3,7 +3,7 @@ from .sprite import MySprite
 
 
 class Player(MySprite):
-  '''Represents player character'''
+  """Represents the player character"""
 
   def __init__(self, width=100, height=100, **kwargs):
     super().__init__(**kwargs)

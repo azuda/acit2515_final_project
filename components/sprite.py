@@ -21,7 +21,7 @@ class MySprite(pygame.sprite.Sprite):
       self.rect.x = self.limits.right - self.rect.width
 
   def move(self, direction, boost=1):
-    """Moves the object left, right, or down"""
+    """Move object left or right with specified boost"""
     if direction == "right":
       self.rect.x += 10 * boost
     elif direction == "left":

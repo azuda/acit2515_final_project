@@ -7,6 +7,7 @@ from sounds import Sound
 
 
 class GameScreen(BaseScreen):
+  """Main game screen"""
   def __init__(self, *args, **kwargs):
     super().__init__(*args, **kwargs)
 

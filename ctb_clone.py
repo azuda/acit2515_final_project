@@ -1,8 +1,8 @@
-'''
+"""
 ACIT 2515 Final Project
-Pygame CTB Clone
+CTB CLONE PYGAME
 Aaron Zhang - A01316218
-'''
+"""
 
 import pygame
 from screens import StartScreen, GameScreen, GameOverScreen
